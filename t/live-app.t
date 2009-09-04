@@ -7,11 +7,9 @@ use IO::Socket;
 use Test::More;
 use Test::WWW::Mechanize;
 
-plan skip_all => 'set TEST_HTTP to enable this test' unless $ENV{TEST_HTTP};
 eval "use Catalyst::Devel 1.0";
 plan skip_all => 'Catalyst::Devel required' if $@;
 
-# plan "no_plan";
 plan tests => 21;
 
 # One port for consumer app, one for provider.
