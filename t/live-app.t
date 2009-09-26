@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 
@@ -7,10 +6,37 @@ use IO::Socket;
 use Test::More;
 use Test::WWW::Mechanize;
 
-eval "use Catalyst::Devel 1.0";
-plan skip_all => 'Catalyst::Devel required' if $@;
+eval <<_DEPS_;
+   use Catalyst::Runtime;
+   use Catalyst::Devel;
+   use Cache::FastMmap;
+   use Catalyst::Authentication::User::Hash;
+   use Catalyst::Plugin::Session::State::Cookie;
+   use Catalyst::Plugin::Session::Store::FastMmap;
+   use Class::Accessor::Fast;
+   use Crypt::DH;
+   use ExtUtils::MakeMaker;
+   use HTML::Parser 3;
+   use LWP::UserAgent;
+   use Net::OpenID::Consumer;
+   use Net::OpenID::Server;
+   use Test::WWW::Mechanize;
+   use Net::DNS;
+   use IO::Socket::INET;
+_DEPS_
 
-plan tests => 21;
+if ( $@ )
+{
+    plan skip_all => 'Test application dependencies not satisfied';
+}
+elsif ( not $ENV{TEST_HTTP} )
+{
+    plan skip_all => 'set TEST_HTTP to enable this test';
+}
+else
+{
+    plan tests => 21;
+}
 
 # One port for consumer app, one for provider.
 my $consumer_port = 10000 + int rand(1 + 10000);
