@@ -1,4 +1,6 @@
 Changes
+config-1.diff
+config.diff
 inc/Module/AutoInstall.pm
 inc/Module/Install.pm
 inc/Module/Install/AutoInstall.pm
