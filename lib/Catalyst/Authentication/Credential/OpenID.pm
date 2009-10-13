@@ -7,7 +7,7 @@ BEGIN {
     __PACKAGE__->mk_accessors(qw/ _config realm debug secret /);
 }
 
-our $VERSION = "0.15";
+our $VERSION = "0.16";
 
 use Net::OpenID::Consumer;
 use Catalyst::Exception ();
@@ -161,7 +161,7 @@ Catalyst::Authentication::Credential::OpenID - OpenID credential for Catalyst::P
 
 =head1 VERSION
 
-0.15
+0.16
 
 =head1 BACKWARDS COMPATIBILITY CHANGES
 
@@ -460,6 +460,8 @@ B<NB>: There is no OpenID store yet.
 The Simple Registration--L<http://openid.net/extensions/sreg/1.1>--(SREG) extension to OpenID is supported in the L<Net::OpenID> family now. Experimental support for it is included here as of v0.12. SREG is the only supported extension in OpenID 1.1. It's experimental in the sense it's a new interface and barely tested. Support for OpenID extensions is here to stay.
 
 =head2 MORE ON CONFIGURATION
+
+=over 4
 
 =item ua_args and ua_class
 

@@ -3,7 +3,7 @@ NAME
     Catalyst::Plugin::Authentication framework.
 
 VERSION
-    0.15
+    0.16
 
 BACKWARDS COMPATIBILITY CHANGES
   EXTENSION_ARGS v EXTENSIONS
@@ -383,11 +383,4 @@ SEE ALSO
 
     Miscellaneous
         Catalyst::Manual::Tutorial, Template, LWPx::ParanoidAgent.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 464:
-        '=item' outside of any '=over'
 
