@@ -3,15 +3,13 @@ NAME
     Catalyst::Plugin::Authentication framework.
 
 VERSION
-    0.16
+    0.16_01
 
 BACKWARDS COMPATIBILITY CHANGES
   EXTENSION_ARGS v EXTENSIONS
     NB: The extensions were previously configured under the key
-    "extension_args". They are now configured under "extensions". This
-    prevents the need for double configuration but it breaks extensions in
-    your application if you do not change the name. The old version is
-    supported for now but may be phased out at any time.
+    "extension_args". They are now configured under "extensions".
+    "extension_args" is no longer honored.
 
     As previously noted, "EXTENSIONS TO OPENID", I have not tested the
     extensions. I would be grateful for any feedback or, better, tests.
@@ -283,6 +281,12 @@ CONFIGURATION
 
     NB: There is no OpenID store yet.
 
+    You can set "trust_root" now too. This is experimental and I have no
+    idea if it's right or could be better. Right now it must be a URI. It
+    was submitted as a path but this seems to limit it to the Catalyst app
+    and while easier to dynamically generate no matter where the app starts,
+    it seems like the wrong way to go. Let me know if that's mistaken.
+
   EXTENSIONS TO OPENID
     The Simple Registration--<http://openid.net/extensions/sreg/1.1>--(SREG)
     extension to OpenID is supported in the Net::OpenID family now.
@@ -290,6 +294,42 @@ CONFIGURATION
     only supported extension in OpenID 1.1. It's experimental in the sense
     it's a new interface and barely tested. Support for OpenID extensions is
     here to stay.
+
+    Google's OpenID is also now supported. Uh, I think.
+
+    Here is a snippet from Thorben Jändling combining Sreg and Google's
+    extenstions–
+
+     'Plugin::Authentication' => {
+        openid => {
+            credential => {
+                class => 'OpenID',
+                ua_class => 'LWP::UserAgent',
+                extensions => {
+                    'http://openid.net/extensions/sreg/1.1' => {
+                        required => 'nickname,email,fullname',
+                        optional => 'timezone,language,dob,country,gender'
+                    },
+                    'http://openid.net/srv/ax/1.0' => {
+                        mode => 'fetch_request',
+                        'type.nickname' => 'http://axschema.org/namePerson/friendly',
+                        'type.email' => 'http://axschema.org/contact/email',
+                        'type.fullname' => 'http://axschema.org/namePerson',
+                        'type.firstname' => 'http://axschema.org/namePerson/first',
+                        'type.lastname' => 'http://axschema.org/namePerson/last',
+                        'type.dob' => 'http://axschema.org/birthDate',
+                        'type.gender' => 'http://axschema.org/person/gender',
+                        'type.country' => 'http://axschema.org/contact/country/home',
+                        'type.language' => 'http://axschema.org/pref/language',
+                        'type.timezone' => 'http://axschema.org/pref/timezone',
+                        required => 'nickname,fullname,email,firstname,lastname',
+                        if_available => 'dob,gender,country,language,timezone',
+                },
+                },
+            },
+        },
+        default_realm => 'openid',
+     };
 
   MORE ON CONFIGURATION
     ua_args and ua_class
