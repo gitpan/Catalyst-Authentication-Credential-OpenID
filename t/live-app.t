@@ -27,7 +27,7 @@ _DEPS_
 
 if ( $@ )
 {
-    plan skip_all => 'Test application dependencies not satisfied';
+    plan skip_all => 'Test application dependencies not satisfied ' . $@;
 }
 elsif ( not $ENV{TEST_HTTP} )
 {

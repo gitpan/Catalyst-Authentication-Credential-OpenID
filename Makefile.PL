@@ -1,6 +1,7 @@
 use inc::Module::Install 0.87;
 use strict;
 use warnings;
+use Module::Install::AuthorTests;
 
 name      "Catalyst-Authentication-Credential-OpenID";
 all_from  "lib/Catalyst/Authentication/Credential/OpenID.pm";
@@ -13,7 +14,7 @@ requires "Cache::FastMmap"    => "1.28";
 requires "Catalyst"       => "5.7";
 requires "Catalyst::Devel"    => "1";
 requires "Net::OpenID::Consumer" => "1.03";
-requires "Catalyst::Authentication::User::Hash" => undef;
+requires "Catalyst::Plugin::Authentication";
 requires "Catalyst::Plugin::Session::Store::FastMmap" => "0.05";
 requires "Catalyst::Plugin::Session::State::Cookie" => "0.08";
 requires "Catalyst::Engine::HTTP" => undef;
@@ -30,6 +31,26 @@ test_requires "Test::More"      => "0.42";
 # test_requires "Net::OpenID::Server" => "1.02";
 # test_requires "Net::DNS"       => undef;
 # test_requires "IO::Socket::INET"   => undef;
+
+author_requires(
+   'Test::WWW::Mechanize' => undef,
+   'Catalyst::Runtime' => undef,
+   'Catalyst::Devel' => undef,
+   'Cache::FastMmap' => undef,
+   'Catalyst::Plugin::Session::State::Cookie' => undef,
+   'Catalyst::Plugin::Session::Store::FastMmap' => undef,
+   'Class::Accessor::Fast' => undef,
+   'Crypt::DH' => undef,
+   'ExtUtils::MakeMaker' => undef,
+   'HTML::Parser' => 3,
+   'LWP::UserAgent' => undef,
+   'Net::OpenID::Consumer' => undef,
+   'Net::OpenID::Server' => undef,
+   'Test::WWW::Mechanize' => undef,
+   'Net::DNS' => undef,
+   'IO::Socket::INET' => undef,
+);
+
 
 if ( $Module::Install::AUTHOR )
 {

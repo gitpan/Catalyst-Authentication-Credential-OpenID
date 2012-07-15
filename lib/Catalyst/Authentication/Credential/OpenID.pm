@@ -16,7 +16,7 @@ __PACKAGE__->mk_accessors(qw/
     flatten_extensions_into_user
 /);
 
-our $VERSION = "0.16_02";
+our $VERSION = "0.17";
 
 use Net::OpenID::Consumer;
 use Catalyst::Exception ();
