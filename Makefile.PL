@@ -32,6 +32,7 @@ test_requires "Test::More"      => "0.42";
 # test_requires "Net::DNS"       => undef;
 # test_requires "IO::Socket::INET"   => undef;
 
+author_tests 't/author';
 author_requires(
    'Test::WWW::Mechanize' => undef,
    'Catalyst::Runtime' => undef,
@@ -58,7 +59,6 @@ if ( $Module::Install::AUTHOR )
         or die "Couldn't update the README";
 }
 
-auto_install;
 resources repository => 'http://dev.catalyst.perl.org/repos/Catalyst/Catalyst-Authentication-Credential-OpenID/';
 
 WriteAll;

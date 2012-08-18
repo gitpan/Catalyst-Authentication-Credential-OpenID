@@ -1,5 +1,8 @@
 Revision history for Catalyst::Authentication::Credential::OpenID
 
+0.18 Sat Aug 18 16:19:00 BST 2012
+      - Fix RT#79072, fixing dist Makefile.PL
+
 0.17 Sun Jul 15 21:03:00 BST 2012
       - Fix Makefile.PL, release dev release.
 
