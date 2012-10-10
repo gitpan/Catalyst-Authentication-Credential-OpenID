@@ -29,7 +29,6 @@ requires:
   Cache::FastMmap: 1.28
   Catalyst: 5.7
   Catalyst::Devel: 1
-  Catalyst::Engine::HTTP: 0
   Catalyst::Plugin::Authentication: 0
   Catalyst::Plugin::Session::State::Cookie: 0.08
   Catalyst::Plugin::Session::Store::FastMmap: 0.05
@@ -40,4 +39,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://dev.catalyst.perl.org/repos/Catalyst/Catalyst-Authentication-Credential-OpenID/
-version: 0.18
+version: 0.19

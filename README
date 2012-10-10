@@ -2,9 +2,6 @@ NAME
     Catalyst::Authentication::Credential::OpenID - OpenID credential for
     Catalyst::Plugin::Authentication framework.
 
-VERSION
-    0.16_01
-
 BACKWARDS COMPATIBILITY CHANGES
   EXTENSION_ARGS v EXTENSIONS
     NB: The extensions were previously configured under the key

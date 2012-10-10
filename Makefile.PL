@@ -17,7 +17,6 @@ requires "Net::OpenID::Consumer" => "1.03";
 requires "Catalyst::Plugin::Authentication";
 requires "Catalyst::Plugin::Session::Store::FastMmap" => "0.05";
 requires "Catalyst::Plugin::Session::State::Cookie" => "0.08";
-requires "Catalyst::Engine::HTTP" => undef;
 
 recommends "Config::General"     => "2";
 recommends "YAML"                => "0.6";

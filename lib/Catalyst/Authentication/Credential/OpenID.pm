@@ -16,7 +16,7 @@ __PACKAGE__->mk_accessors(qw/
     flatten_extensions_into_user
 /);
 
-our $VERSION = "0.18";
+our $VERSION = "0.19";
 
 use Net::OpenID::Consumer;
 use Catalyst::Exception ();
@@ -171,10 +171,6 @@ __END__
 =head1 NAME
 
 Catalyst::Authentication::Credential::OpenID - OpenID credential for Catalyst::Plugin::Authentication framework.
-
-=head1 VERSION
-
-0.16_01
 
 =head1 BACKWARDS COMPATIBILITY CHANGES
 
